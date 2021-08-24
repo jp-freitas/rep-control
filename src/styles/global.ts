@@ -2,7 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --background: #e3e3e3;
+    --background: #696969;
+    --text: #f9eac3;
+    --background-sidebar: #343434;
   }
 
   * {
@@ -29,10 +31,12 @@ export const GlobalStyle = createGlobalStyle`
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    color: var(--text);
   }
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
+    color: var(--text);
   }
 
   button {
