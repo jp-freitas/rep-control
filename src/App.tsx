@@ -1,11 +1,11 @@
-import { Sidebar } from './components/Sidebar';
+import { Dashboard } from './components/Dashboard';
 import { GlobalStyle } from './styles/global';
 
 export function App() {
   return (
-    <div className="App">
-      <Sidebar />
+    <>
+      <Dashboard />
       <GlobalStyle />
-    </div>
+    </>
   );
 }
