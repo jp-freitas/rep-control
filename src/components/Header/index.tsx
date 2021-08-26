@@ -1,14 +1,17 @@
-import { Container, Content } from './styles';
+import { Content } from './styles';
 
 export function Header() {
   return (
-    <Container>
-      <Content>
-        <input type="text" placeholder="Pesquisar por relógio" />
+    <Content>
+      <input type="text" placeholder="Pesquisar por relógio" />
+      <div className="button-group">
         <button type="button">
           Relógio
         </button>
-      </Content>
-    </Container>
+        <button type="button">
+          Sair
+        </button>
+      </div>
+    </Content>
   );
 }
