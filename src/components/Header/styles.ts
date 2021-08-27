@@ -6,44 +6,9 @@ export const Content = styled.header`
   padding: 0 0 4rem;
   display: flex;
 
-  input {
-    width: 100%;
-    height: 3rem;
-    margin: 0.5rem;
-    padding: 1rem 3rem;
-    border-radius: 0.5rem;
-    border: 0;
-    background: var(--background-input);
-    padding-left: 4rem;
-    font-size: 1rem;
-
-    :focus {
-      outline: none;
-    }
-
-    ::placeholder {
-      color: var(--text);
-    }
-  }
-
   .button-group {
     display: flex;
     flex-direction: row;
-  }
-
-  button {
-    height: 3rem;
-    font-size: 1rem;
-    margin: 0.5rem;
-    padding: 1rem 3rem;
-    background: var(--background-button-sidebar);
-    border: 0;
-    border-radius: 0.5rem;
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.8)
-    }
   }
 
   @media (max-width: 468px) {

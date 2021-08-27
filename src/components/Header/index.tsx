@@ -1,16 +1,22 @@
+import { FiSearch, FiPlusCircle, FiLogOut } from 'react-icons/fi';
+import { Button } from '../Button';
+import { Input } from '../Input';
+
 import { Content } from './styles';
 
 export function Header() {
   return (
     <Content>
-      <input type="text" placeholder="Pesquisar por relógio" />
+      <Input name="search" icon={FiSearch} placeholder="Pesquisar por relógio" />
       <div className="button-group">
-        <button type="button">
+        <Button>
+          <FiPlusCircle />
           Relógio
-        </button>
-        <button type="button">
+        </Button>
+        <Button>
+          <FiLogOut />
           Sair
-        </button>
+        </Button>
       </div>
     </Content>
   );
