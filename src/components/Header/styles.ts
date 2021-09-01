@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Content = styled.header`
-  max-width: 71rem;
-  margin: 1rem auto;
-  padding: 0 0 4rem;
+  padding: 0 0 5rem;
   display: flex;
 
   .button-group {
@@ -23,7 +21,7 @@ export const Content = styled.header`
 
     .button-group {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
     }
 
     button {

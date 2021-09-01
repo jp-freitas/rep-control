@@ -5,9 +5,10 @@ export const Container = styled.button`
     align-items: center;
     height: 3rem;
     font-size: 1rem;
-    margin: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
     padding: 1rem;
-    background: var(--background-button-sidebar);
+    background: var(--background-sidebar);
     border: 0;
     border-radius: 0.5rem;
     transition: filter 0.2s;
