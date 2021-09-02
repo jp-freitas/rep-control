@@ -10,7 +10,7 @@ export function App() {
     <>
       <BrowserRouter>
         <AuthContextProvider>
-          <Route path="/" exact component={SignIn} />
+          <Route path="/signin" exact component={SignIn} />
           <Route path="/dashboard" component={Dashboard} />
         </AuthContextProvider>
       </BrowserRouter>

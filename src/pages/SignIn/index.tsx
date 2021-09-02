@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa'
 
 import { Button } from '../../components/Button';
-import { Container, Content } from './styles';
+import { Container } from './styles';
 import { useAuth } from '../../hooks/useAuth';
 
 export function SignIn() {
@@ -20,12 +20,10 @@ export function SignIn() {
 
   return (
     <Container>
-      <Content>
-        <Button onClick={handleSignIn}>
-          <FaGoogle />
-          Login with google!
-        </Button>
-      </Content>
+      <Button onClick={handleSignIn}>
+        <FaGoogle />
+        Login with Google!
+      </Button>
     </Container>
   );
 }
