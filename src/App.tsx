@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
@@ -10,8 +10,10 @@ export function App() {
     <>
       <BrowserRouter>
         <AuthContextProvider>
-          <Route path="/signin" exact component={SignIn} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Switch>
+            <Route path="/signin" exact component={SignIn} />
+            <Route path="/dashboard" component={Dashboard} />
+          </Switch>
         </AuthContextProvider>
       </BrowserRouter>
       <GlobalStyle />
