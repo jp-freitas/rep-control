@@ -11,8 +11,8 @@ export function App() {
       <BrowserRouter>
         <AuthContextProvider>
           <Switch>
-            <Route path="/signin" exact component={SignIn} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/" exact component={SignIn} />
+            <Route path="/dashboard" exact component={Dashboard} />
           </Switch>
         </AuthContextProvider>
       </BrowserRouter>

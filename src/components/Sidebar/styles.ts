@@ -10,11 +10,13 @@ export const Container = styled.nav`
   justify-content: space-between;
   padding-top: 1rem;
 
-  div {
+  .user-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 1rem;
+    height: 18%;
+    border-bottom: 0.15rem solid var(--text);
+    width: 100%;
 
     img {
       border-radius: 50%;
@@ -26,6 +28,37 @@ export const Container = styled.nav`
     p {
       font-size: 1rem;
       margin-top: 0.5rem;
+    }
+  }
+
+  .navigation-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 62%;
+    a {
+      display: flex;
+      align-items: center;
+      transition: filter 0.2s;
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+
+    a:hover {
+      filter: brightness(0.8);
+    }
+    
+    a:first-child {
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+    }
+
+    a:last-child {
+      padding-top: 0.5rem;
+      padding-left: 1rem;
     }
   }
 

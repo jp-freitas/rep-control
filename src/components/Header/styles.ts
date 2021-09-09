@@ -4,9 +4,8 @@ export const Content = styled.header`
   padding: 0 0 5rem;
   display: flex;
 
-  .button-group {
-    display: flex;
-    flex-direction: row;
+  input {
+    margin-right: 0;
   }
 
   @media (max-width: 468px) {
