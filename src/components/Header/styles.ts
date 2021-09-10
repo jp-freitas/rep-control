@@ -13,7 +13,7 @@ export const Content = styled.header`
     justify-content: space-between;
 
     img {
-      width: 70px;
+      width: 3rem;
       border-radius: 50%;
     }
 

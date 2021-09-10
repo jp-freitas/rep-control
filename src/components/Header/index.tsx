@@ -1,12 +1,17 @@
-import { FiLogOut, FiPlusCircle, FiSearch } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
+import { FiLogOut, FiPlusCircle, FiSearch } from 'react-icons/fi';
+
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../Button';
 import { Input } from '../Input';
 
 import { Content } from './styles';
 
-export function Header() {
+interface HeaderProps {
+  onOpenNewRepModal: () => void;
+}
+
+export function Header({ onOpenNewRepModal }: HeaderProps) {
   const { user, signOut } = useAuth();
   const history = useHistory();
 
@@ -23,7 +28,7 @@ export function Header() {
       </div>
       <div className="action-group">
         <Input name="search" icon={FiSearch} placeholder="Pesquisar por relógio" />
-        <Button onClick={handleLogout}>
+        <Button onClick={onOpenNewRepModal}>
           <FiPlusCircle />
           Cadastrar
         </Button>

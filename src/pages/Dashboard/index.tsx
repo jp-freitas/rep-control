@@ -1,14 +1,31 @@
-import { ListPage } from "../ListPage";
+import { useState } from "react";
+import { Header } from "../../components/Header";
+import { NewRepModal } from "../../components/NewRepModal";
+import { TableContent } from "../../components/TableContent";
 import { Container, Content } from "./styles";
 
 export function Dashboard() {
+  const [isNewRepModalOpen, setIsNewRepModalOpen] = useState(false);
+
+  function handleOpenNewRepModal() {
+    setIsNewRepModalOpen(true);
+  }
+
+  function handleCloseNewRepModal() {
+    setIsNewRepModalOpen(false);
+  }
 
   return (
     <>
       <Container>
         <Content>
-          <ListPage />
+          <Header onOpenNewRepModal={handleOpenNewRepModal} />
+          <TableContent />
         </Content>
+        <NewRepModal
+          isOpen={isNewRepModalOpen}
+          onRequestClose={handleCloseNewRepModal}
+        />
       </Container>
     </>
   );
