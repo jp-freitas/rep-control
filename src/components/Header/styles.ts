@@ -3,9 +3,30 @@ import styled from 'styled-components';
 export const Content = styled.header`
   padding: 0 0 5rem;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  input {
-    margin-right: 0;
+  .user-group {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: space-between;
+
+    img {
+      width: 70px;
+      border-radius: 50%;
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 400;
+      padding-left: 1rem;
+    }
+  }
+
+  .action-group {
+    display: flex;
+    align-items: center;
   }
 
   @media (max-width: 468px) {

@@ -1,5 +1,4 @@
-import { Sidebar } from '../../components/Sidebar';
-
+import { ListPage } from "../ListPage";
 import { Container, Content } from "./styles";
 
 export function Dashboard() {
@@ -7,9 +6,8 @@ export function Dashboard() {
   return (
     <>
       <Container>
-        <Sidebar />
         <Content>
-
+          <ListPage />
         </Content>
       </Container>
     </>
