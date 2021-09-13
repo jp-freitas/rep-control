@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa'
 
 import { Button } from '../../components/Button';
-import { Container } from './styles';
+import { Container, Content } from './styles';
 import { useAuth } from '../../hooks/useAuth';
 
 export function SignIn() {
@@ -20,10 +20,15 @@ export function SignIn() {
 
   return (
     <Container>
-      <Button onClick={handleSignIn}>
-        <FaGoogle />
-        Login with Google!
-      </Button>
+      <Content>
+        <h1>REP-CONTROL</h1>
+        <p>Control your maintenance history <br /> of biometric time clock!</p>
+        <Button onClick={handleSignIn}>
+          <FaGoogle />
+          Login with Google!
+        </Button>
+        <p>Made by João Freitas with 💙 !</p>
+      </Content>
     </Container>
   );
 }
