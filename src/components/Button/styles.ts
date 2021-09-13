@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.button`
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 3rem;
     font-size: 1rem;
     margin-top: 1rem;
-    margin-left: 0.5rem;
     padding: 1rem;
     background: var(--background-sidebar);
     border: 0;

@@ -27,6 +27,10 @@ export const Content = styled.header`
   .action-group {
     display: flex;
     align-items: center;
+
+    button {
+      margin-left: 0.5rem;
+    }
   }
 
   @media (max-width: 468px) {
