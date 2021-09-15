@@ -3,8 +3,11 @@ import Modal from 'react-modal';
 
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
-import { GlobalStyle } from './styles/global';
+import { Rep } from './pages/Rep';
+
 import { AuthContextProvider } from './contexts/AuthContext';
+
+import { GlobalStyle } from './styles/global';
 
 Modal.setAppElement('#root');
 
@@ -15,7 +18,8 @@ export function App() {
         <AuthContextProvider>
           <Switch>
             <Route path="/" exact component={SignIn} />
-            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/rep/:id" component={Rep} />
           </Switch>
         </AuthContextProvider>
       </BrowserRouter>

@@ -33,6 +33,10 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
       serial_number: serialNumber,
     });
 
+    onRequestClose();
+    setLocal('');
+    setInternetProtocol(Number());
+    setSerialNumber(Number());
   }
 
   return (
