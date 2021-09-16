@@ -23,7 +23,7 @@ export function Header({ onOpenNewRepModal }: HeaderProps) {
   return (
     <Content>
       <div className="user-group">
-        <img src={user?.avatar} alt="Foto do Usuário" />
+        <img src={user?.avatar} alt={user?.name} />
         <p>{user?.name}</p>
       </div>
       <div className="action-group">
