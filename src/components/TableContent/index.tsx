@@ -1,11 +1,41 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { database } from '../../services/firebase';
 import { Container } from './styles';
 
-export function TableContent() {
-  const repRef = database.ref(`reps`);
+type FirebaseReps = Record<string, {
+  local: string;
+  internet_protocol: number;
+  serial_number: number;
+}>
 
-  console.log(repRef.child);
+type Rep = {
+  id: string;
+  local: string;
+  internet_protocol: number;
+  serial_number: number;
+}
+
+export function TableContent() {
+  const [reps, setReps] = useState<Rep[]>([]);
+
+  useEffect(() => {
+    const repRef = database.ref(`reps/`);
+
+    repRef.on('value', rep => {
+      const databaseRep = rep.val();
+      const firebaseReps: FirebaseReps = databaseRep ?? {};
+      const parsedReps = Object.entries(firebaseReps).map(([key, value]) => {
+        return {
+          id: key,
+          local: value.local,
+          internet_protocol: value.internet_protocol,
+          serial_number: value.serial_number,
+        }
+      });
+      setReps(parsedReps);
+    });
+  }, []);
 
   return (
     <Container>
@@ -19,42 +49,14 @@ export function TableContent() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td><Link to={`/rep/:id`}>Detalhes</Link></td>
-          </tr>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td>Mais</td>
-          </tr>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td>Mais</td>
-          </tr>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td>Mais</td>
-          </tr>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td>Mais</td>
-          </tr>
-          <tr>
-            <td>Palácio Castelo Branco</td>
-            <td>192.168.210.70</td>
-            <td>4004330081158</td>
-            <td>Mais</td>
-          </tr>
+          {reps.map(rep => (
+            <tr key={rep.id}>
+              <td>{rep.local}</td>
+              <td>{rep.internet_protocol}</td>
+              <td>{rep.serial_number}</td>
+              <td><Link to={`/rep/${rep.id}`}>Detalhes</Link></td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </Container>
