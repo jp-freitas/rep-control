@@ -15,8 +15,8 @@ interface ModalProps {
 
 export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
   const [local, setLocal] = useState('');
-  const [internetProtocol, setInternetProtocol] = useState(Number());
-  const [serialNumber, setSerialNumber] = useState(Number());
+  const [internetProtocol, setInternetProtocol] = useState(0);
+  const [serialNumber, setSerialNumber] = useState(0);
 
   async function handleCreateRep(event: FormEvent) {
     event.preventDefault();
@@ -27,7 +27,7 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
 
     const repRef = database.ref('reps');
 
-    const firebaseRep = await repRef.push({
+    await repRef.push({
       local: local,
       internet_protocol: internetProtocol,
       serial_number: serialNumber,
@@ -65,7 +65,7 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
         <Input
           name="ip"
           type="number"
-          placeholder="IP"
+          placeholder="000.000.000.000"
           value={internetProtocol}
           onChange={event => setInternetProtocol(Number(event.target.value))}
         />
