@@ -21,6 +21,14 @@ export const Container = styled.div`
       }
     }
 
+    tr {
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: contrast(0.8);
+      }
+    }
+
     td {
       padding: 1rem 2rem;
       border: 0;
@@ -32,6 +40,14 @@ export const Container = styled.div`
 
       &:last-child {
         border-radius: 0 0.5rem 0.5rem 0;
+      }
+
+      a {
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
       }
     }
   }

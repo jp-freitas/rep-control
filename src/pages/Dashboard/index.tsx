@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "../../components/Header";
 import { NewRepModal } from "../../components/NewRepModal";
-import { TableContent } from "../../components/TableContent";
+import { TableContent } from "../TableContent";
 import { Container, Content } from "./styles";
 
 export function Dashboard() {
