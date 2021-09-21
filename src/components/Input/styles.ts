@@ -28,6 +28,16 @@ export const Container = styled.div`
       color: var(--text);
 
     }
+
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 
   svg {
