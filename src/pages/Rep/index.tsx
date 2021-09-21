@@ -5,13 +5,28 @@ import { FiArrowLeft, FiEdit2, FiPlusCircle } from 'react-icons/fi';
 import { Container, Header, Content } from './styles';
 import { database } from "../../services/firebase";
 import { Button } from "../../components/Button";
+import { NewRepairHistoricModal } from "../../components/NewRepairHistoricModal";
 
 type RepType = {
   id: string;
   local: string;
   internet_protocol: number;
   serial_number: number;
+  repair_history: FirebaseRepairHistory;
 }
+
+type RepairHistory = {
+  id: string;
+  date: Date;
+  description: string;
+  situation: string;
+}
+
+type FirebaseRepairHistory = Record<string, {
+  date: Date;
+  description: string;
+  situation: string;
+}>;
 
 type RepParams = {
   id: string;
@@ -21,15 +36,42 @@ export function Rep() {
   const params = useParams<RepParams>();
   const repId = params.id;
   const [rep, setRep] = useState<RepType>();
+  const [repRepaiHistory, setRepRepairHistory] = useState<RepairHistory[]>([]);
+  const [isNewRepairHistoricModalOpen, setIsNewRepairHistoricModalOpen] = useState(false);
+
+  function handleOpenNewRepairHistoricModal() {
+    setIsNewRepairHistoricModalOpen(true);
+  }
+
+  function handleCloseNewRepairHistoricModal() {
+    setIsNewRepairHistoricModalOpen(false);
+  }
 
   useEffect(() => {
     const repRef = database.ref(`reps/${repId}`);
+    const repRepairHistoryRef = database.ref(`reps/${repId}/repair_history`);
 
-    repRef.on('value', rep => {
+    repRef.once('value', rep => {
       const databaseRep = rep.val();
       setRep(databaseRep);
     });
+
+    repRepairHistoryRef.on('value', repRH => {
+      const databaseRepairHistory = repRH.val();
+      const firebaseRepairHistory: FirebaseRepairHistory = databaseRepairHistory ?? {};
+      const parsedRepairHistory = Object.entries(firebaseRepairHistory).map((
+        [key, value]) => {
+        return {
+          id: key,
+          date: value.date,
+          description: value.description,
+          situation: value.situation,
+        }
+      });
+      setRepRepairHistory(parsedRepairHistory);
+    });
   }, [repId]);
+
   return (
     <Container>
       <Header>
@@ -61,7 +103,7 @@ export function Rep() {
         </table>
         <div className="repair-header">
           <h2>Histórico de Reparo</h2>
-          <Button>
+          <Button onClick={handleOpenNewRepairHistoricModal}>
             <FiPlusCircle />
             Adicionar
           </Button>
@@ -75,14 +117,21 @@ export function Rep() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>17/09/2021</td>
-              <td>Atualização do Servidor de Gerenciamento</td>
-              <td>Funcionando</td>
-            </tr>
+            {repRepaiHistory.map(history => (
+              <tr key={history.id}>
+                <td>{history.date}</td>
+                <td>{history.description}</td>
+                <td>{history.situation}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </Content>
+      <NewRepairHistoricModal
+        isOpen={isNewRepairHistoricModalOpen}
+        onRequestClose={handleCloseNewRepairHistoricModal}
+        id={repId}
+      />
     </Container>
   );
 }
