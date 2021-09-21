@@ -55,24 +55,27 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
       </button>
       <Container onSubmit={handleCreateRep}>
         <h2>Cadastrar Relógio</h2>
+        <label htmlFor="local">Local</label>
         <Input
+          id="local"
           name="local"
           type="text"
-          placeholder="Local do Relógio"
           value={local}
           onChange={event => setLocal(event.target.value)}
         />
+        <label htmlFor="internet-protocol">Protocolo de Internet</label>
         <Input
-          name="ip"
+          id="internet-protocol"
+          name="internet-protocol"
           type="number"
-          placeholder="000.000.000.000"
           value={internetProtocol}
           onChange={event => setInternetProtocol(Number(event.target.value))}
         />
+        <label htmlFor="serial-number">Número de Série</label>
         <Input
+          id="serial-number"
           name="serial-number"
           type="number"
-          placeholder="Número de Série"
           value={serialNumber}
           onChange={event => setSerialNumber(Number(event.target.value))}
         />

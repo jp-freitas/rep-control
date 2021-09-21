@@ -14,4 +14,13 @@ export const Container = styled.form`
     font-size: 1.5rem;
     margin-bottom: 2rem;
   }
+
+  label {
+    margin-top: 1rem;
+  }
+
+  div {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
 `;
