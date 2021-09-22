@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 3rem;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  height: 2.6rem;
+  margin-top: 0.6rem;
+  padding: 0.6rem;
+  border-radius: 0.25rem;
   border: 1px solid var(--background-table-data);
   background: var(--background-input);
   box-shadow: 0 0.5rem 0.5rem -0.25rem rgba(0, 0, 0, 0.25);
