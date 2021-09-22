@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
-import { Rep } from './pages/Rep';
+import { Rep } from './components/Rep';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 
