@@ -64,8 +64,8 @@ export function Dashboard() {
           <Header onOpenNewRepModal={handleOpenNewRepModal} />
           <Reps reps={currentReps} />
           <Pagination
-            repsPerPage={repsPerPage}
-            totalReps={reps.length}
+            listPerPage={repsPerPage}
+            listTotal={reps.length}
             paginate={paginate} />
         </Content>
         <NewRepModal

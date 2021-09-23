@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { Container, Content, ListItem } from "./styles";
 
 interface PaginationProps {
-  repsPerPage: number;
-  totalReps: number;
+  listPerPage: number;
+  listTotal: number;
   paginate: (number: number) => void;
 }
 
-export function Pagination({ repsPerPage, totalReps, paginate }: PaginationProps) {
+export function Pagination({ listPerPage, listTotal, paginate }: PaginationProps) {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalReps / repsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(listTotal / listPerPage); i++) {
     pageNumbers.push(i);
   }
 

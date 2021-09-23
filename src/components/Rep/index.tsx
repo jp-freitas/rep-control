@@ -46,9 +46,9 @@ export function Rep() {
     setIsNewRepairHistoricModalOpen
   ] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [repsPerPage] = useState(4);
-  const indexOfLastRep = currentPage * repsPerPage;
-  const indexOfFirstRep = indexOfLastRep - repsPerPage;
+  const [repairsPerPage] = useState(4);
+  const indexOfLastRep = currentPage * repairsPerPage;
+  const indexOfFirstRep = indexOfLastRep - repairsPerPage;
   const currentRepRepairHistory =
     repRepaiHistory.slice(indexOfFirstRep, indexOfLastRep);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
@@ -121,9 +121,9 @@ export function Rep() {
         openModal={handleOpenNewRepairHistoricModal}
       />
       <Pagination
-        repsPerPage={repsPerPage}
+        listPerPage={repairsPerPage}
         paginate={paginate}
-        totalReps={repRepaiHistory.length}
+        listTotal={repRepaiHistory.length}
       />
       <NewRepairHistoricModal
         isOpen={isNewRepairHistoricModalOpen}
