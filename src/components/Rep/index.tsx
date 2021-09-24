@@ -124,6 +124,7 @@ export function Rep() {
         listPerPage={repairsPerPage}
         paginate={paginate}
         listTotal={repRepaiHistory.length}
+        currentPage={currentPage}
       />
       <NewRepairHistoricModal
         isOpen={isNewRepairHistoricModalOpen}
