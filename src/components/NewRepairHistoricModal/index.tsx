@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { FiX } from "react-icons/fi";
 import Modal from "react-modal";
+import { toast } from "react-toastify";
 import { database } from "../../services/firebase";
 
 import { Button } from "../Button";
@@ -24,6 +25,8 @@ export function NewRepairHistoricModal({ isOpen, onRequestClose, id }: ModalProp
     event.preventDefault();
 
     if ((date.trim() && description && situation) === '') {
+      onRequestClose();
+      toast.error('Nenhum dado preenchido!');
       return;
     }
 
@@ -36,6 +39,7 @@ export function NewRepairHistoricModal({ isOpen, onRequestClose, id }: ModalProp
     });
 
     onRequestClose();
+    toast.success('Histórico cadastrado com sucesso!');
     setDate('');
     setDescription('');
     setSituation('');
