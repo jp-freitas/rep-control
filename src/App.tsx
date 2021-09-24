@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Modal from 'react-modal';
 
 import { SignIn } from './pages/SignIn';
@@ -24,6 +25,7 @@ export function App() {
         </AuthContextProvider>
       </BrowserRouter>
       <GlobalStyle />
+      <ToastContainer />
     </>
   );
 }
