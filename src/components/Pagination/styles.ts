@@ -29,6 +29,12 @@ export const ListItem = styled.li`
     justify-content: center;
   }
 
+  .active {
+    background: var(--text);
+    color: var(--background-table-header);
+    border-radius: 50%;
+  }
+
   &:hover {
     filter: brightness(0.8);
   }
