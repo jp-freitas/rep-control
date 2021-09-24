@@ -30,8 +30,8 @@ export const ListItem = styled.li`
   }
 
   .active {
-    background: var(--text);
-    color: var(--background-table-header);
+    background: var(--background-table-data);
+    color: var(--text);
     border-radius: 50%;
   }
 
