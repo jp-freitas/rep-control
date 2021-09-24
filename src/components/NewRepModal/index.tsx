@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import { FiX } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -22,6 +23,8 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
     event.preventDefault();
 
     if ((local.trim() && internetProtocol && serialNumber) === '') {
+      onRequestClose();
+      toast.error('Nenhum dado preenchido!');
       return;
     }
 
@@ -34,6 +37,7 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
     });
 
     onRequestClose();
+    toast.success('Relógio Cadastrado com Sucesso!');
     setLocal('');
     setInternetProtocol(Number());
     setSerialNumber(Number());
