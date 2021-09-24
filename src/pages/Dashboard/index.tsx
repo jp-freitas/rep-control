@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { database } from "../../services/firebase";
 
 import { Header } from "../../components/Header";
@@ -66,7 +67,9 @@ export function Dashboard() {
           <Pagination
             listPerPage={repsPerPage}
             listTotal={reps.length}
-            paginate={paginate} />
+            paginate={paginate}
+            currentPage={currentPage}
+          />
         </Content>
         <NewRepModal
           isOpen={isNewRepModalOpen}
