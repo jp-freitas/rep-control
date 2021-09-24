@@ -33,24 +33,50 @@ export const Content = styled.header`
     }
   }
 
-  @media (max-width: 468px) {
+  @media (max-width: 680px) {
     flex-direction: column;
-    max-width: 25rem;
+    align-items: center;
+    justify-content: center;
+    width: 40rem;
     margin: 0 auto;
 
-    input {
-      margin: 1rem 0 1rem 0;
-      width: 100%
-    }
-
-    .button-group {
+    .action-group {
       display: flex;
-      justify-content: space-between;
-    }
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    button {
-      margin: 1rem;
-      width: 50%;
+      input {
+        width: 35rem;
+      }
+
+      button {
+        width: 38.6rem;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: 512px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    .action-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        width: 20rem;
+      }
+
+      button {
+        width: 23.6rem;
+        margin-left: 0;
+      }
     }
   }
 `;
