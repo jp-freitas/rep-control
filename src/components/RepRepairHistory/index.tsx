@@ -1,17 +1,24 @@
 import { FiPlusCircle } from "react-icons/fi";
+import { useParams } from "react-router";
+import { useRep } from "../../hooks/useRep";
 import { Button } from "../Button";
-import { RepairHistory } from "../Rep";
 import { Container, Content, Header } from "./styles";
 
 interface RepairHistoryProps {
-  currentRepRepairHistory: RepairHistory[];
   openModal: () => void;
 }
 
+type RepParams = {
+  id: string;
+}
+
 export function RepRepairHistory({
-  currentRepRepairHistory,
   openModal,
 }: RepairHistoryProps) {
+  const params = useParams<RepParams>();
+  const repId = params.id;
+  const { repRepairHistory } = useRep(repId);
+
   return (
     <Container>
       <Header className="repair-header">
@@ -30,7 +37,7 @@ export function RepRepairHistory({
           </tr>
         </thead>
         <tbody>
-          {currentRepRepairHistory.map(history => (
+          {repRepairHistory.map(history => (
             <tr key={history.id}>
               <td>{history.date}</td>
               <td>{history.description}</td>

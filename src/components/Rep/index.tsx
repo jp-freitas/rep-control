@@ -1,36 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FiArrowLeft, FiEdit2 } from 'react-icons/fi';
 
-import { database } from "../../services/firebase";
-
 import { Button } from "../Button";
 import { NewRepairHistoricModal } from "../NewRepairHistoricModal";
-import { Pagination } from "../Pagination";
+// import { Pagination } from "../Pagination";
 import { RepRepairHistory } from "../RepRepairHistory";
 
 import { Container, Header, Content } from './styles';
-
-type RepType = {
-  id: string;
-  local: string;
-  internet_protocol: number;
-  serial_number: number;
-  repair_history: FirebaseRepairHistory;
-}
-
-export type RepairHistory = {
-  id: string;
-  date: Date;
-  description: string;
-  situation: string;
-}
-
-type FirebaseRepairHistory = Record<string, {
-  date: Date;
-  description: string;
-  situation: string;
-}>;
+import { useRep } from "../../hooks/useRep";
 
 type RepParams = {
   id: string;
@@ -39,19 +17,11 @@ type RepParams = {
 export function Rep() {
   const params = useParams<RepParams>();
   const repId = params.id;
-  const [rep, setRep] = useState<RepType>();
-  const [repRepaiHistory, setRepRepairHistory] = useState<RepairHistory[]>([]);
+  const { rep } = useRep(repId);
   const [
     isNewRepairHistoricModalOpen,
     setIsNewRepairHistoricModalOpen
   ] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [repairsPerPage] = useState(4);
-  const indexOfLastRep = currentPage * repairsPerPage;
-  const indexOfFirstRep = indexOfLastRep - repairsPerPage;
-  const currentRepRepairHistory =
-    repRepaiHistory.slice(indexOfFirstRep, indexOfLastRep);
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   function handleOpenNewRepairHistoricModal() {
     setIsNewRepairHistoricModalOpen(true);
@@ -60,31 +30,6 @@ export function Rep() {
   function handleCloseNewRepairHistoricModal() {
     setIsNewRepairHistoricModalOpen(false);
   }
-
-  useEffect(() => {
-    const repRef = database.ref(`reps/${repId}`);
-    const repRepairHistoryRef = database.ref(`reps/${repId}/repair_history`);
-
-    repRef.once('value', rep => {
-      const databaseRep = rep.val();
-      setRep(databaseRep);
-    });
-
-    repRepairHistoryRef.on('value', repRH => {
-      const databaseRepairHistory = repRH.val();
-      const firebaseRepairHistory: FirebaseRepairHistory = databaseRepairHistory ?? {};
-      const parsedRepairHistory = Object.entries(firebaseRepairHistory).map((
-        [key, value]) => {
-        return {
-          id: key,
-          date: value.date,
-          description: value.description,
-          situation: value.situation,
-        }
-      });
-      setRepRepairHistory(parsedRepairHistory);
-    });
-  }, [repId]);
 
   return (
     <Container>
@@ -117,15 +62,14 @@ export function Rep() {
         </table>
       </Content>
       <RepRepairHistory
-        currentRepRepairHistory={currentRepRepairHistory}
         openModal={handleOpenNewRepairHistoricModal}
       />
-      <Pagination
+      {/* <Pagination
         listPerPage={repairsPerPage}
         paginate={paginate}
-        listTotal={repRepaiHistory.length}
+        listTotal={repRepairHistory.length}
         currentPage={currentPage}
-      />
+      /> */}
       <NewRepairHistoricModal
         isOpen={isNewRepairHistoricModalOpen}
         onRequestClose={handleCloseNewRepairHistoricModal}

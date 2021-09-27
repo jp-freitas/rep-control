@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Rep } from '../../pages/Dashboard';
+import { useReps } from '../../hooks/useReps';
 import { Container } from './styles';
 
-interface RepProps {
-  reps: Rep[];
-}
+export function Reps() {
+  const { reps } = useReps();
 
-export function Reps({ reps }: RepProps) {
   return (
     <Container>
       <table>
