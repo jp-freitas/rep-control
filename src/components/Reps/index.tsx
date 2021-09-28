@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
+import { usePaginate } from '../../hooks/usePaginate';
 import { useReps } from '../../hooks/useReps';
+import { Pagination } from '../Pagination';
 import { Container } from './styles';
 
 export function Reps() {
   const { reps } = useReps();
+  const {
+    currentList,
+    paginate,
+    currentPage,
+    itensPerPage,
+  } = usePaginate(reps, 7);
 
   return (
     <Container>
@@ -17,7 +25,7 @@ export function Reps() {
           </tr>
         </thead>
         <tbody>
-          {reps.map(rep => (
+          {currentList.map(rep => (
             <tr key={rep.id}>
               <td>{rep.local}</td>
               <td>{rep.internet_protocol}</td>
@@ -27,6 +35,12 @@ export function Reps() {
           ))}
         </tbody>
       </table>
+      <Pagination
+        listPerPage={itensPerPage}
+        listTotal={reps.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </Container>
   );
 }

@@ -4,7 +4,6 @@ import { FiArrowLeft, FiEdit2 } from 'react-icons/fi';
 
 import { Button } from "../Button";
 import { NewRepairHistoricModal } from "../NewRepairHistoricModal";
-// import { Pagination } from "../Pagination";
 import { RepRepairHistory } from "../RepRepairHistory";
 
 import { Container, Header, Content } from './styles';
@@ -64,12 +63,6 @@ export function Rep() {
       <RepRepairHistory
         openModal={handleOpenNewRepairHistoricModal}
       />
-      {/* <Pagination
-        listPerPage={repairsPerPage}
-        paginate={paginate}
-        listTotal={repRepairHistory.length}
-        currentPage={currentPage}
-      /> */}
       <NewRepairHistoricModal
         isOpen={isNewRepairHistoricModalOpen}
         onRequestClose={handleCloseNewRepairHistoricModal}
