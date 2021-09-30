@@ -8,6 +8,7 @@ import { RepRepairHistory } from "../RepRepairHistory";
 
 import { Container, Header, Content } from './styles';
 import { useRep } from "../../hooks/useRep";
+import { EditRepModal } from "../EditRepModal";
 
 type RepParams = {
   id: string;
@@ -21,6 +22,16 @@ export function Rep() {
     isNewRepairHistoricModalOpen,
     setIsNewRepairHistoricModalOpen
   ] = useState(false);
+
+  const [isEditRepModalOpen, setIsEditRepModalOpen] = useState(false);
+
+  function handleOpenEditRepModal() {
+    setIsEditRepModalOpen(true);
+  }
+
+  function handleCloseEditRepModal() {
+    setIsEditRepModalOpen(false);
+  }
 
   function handleOpenNewRepairHistoricModal() {
     setIsNewRepairHistoricModalOpen(true);
@@ -37,7 +48,7 @@ export function Rep() {
           <FiArrowLeft />
         </Link>
         <h2>Informação do Relógio de Ponto Biométrico</h2>
-        <Button>
+        <Button onClick={handleOpenEditRepModal}>
           <FiEdit2 />
           Editar
         </Button>
@@ -62,6 +73,11 @@ export function Rep() {
       </Content>
       <RepRepairHistory
         openModal={handleOpenNewRepairHistoricModal}
+      />
+      <EditRepModal
+        isOpen={isEditRepModalOpen}
+        onRequestClose={handleCloseEditRepModal}
+        id={repId}
       />
       <NewRepairHistoricModal
         isOpen={isNewRepairHistoricModalOpen}
