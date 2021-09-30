@@ -30,7 +30,7 @@ export function useRep(repId: string) {
     const repRef = database.ref(`reps/${repId}`);
     const repRepairHistoryRef = database.ref(`reps/${repId}/repair_history`);
 
-    repRef.once('value', rep => {
+    repRef.on('value', rep => {
       const databaseRep = rep.val();
       setRep(databaseRep);
     });
