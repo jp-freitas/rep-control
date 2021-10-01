@@ -27,7 +27,7 @@ export function useRep(repId: string) {
   const [repRepairHistory, setRepRepairHistory] = useState<RepairHistory[]>([]);
 
   useEffect(() => {
-    const repRef = database.ref(`reps/${repId}`);
+    const repRef = database.ref(`reps`).child(repId);
     const repRepairHistoryRef = database.ref(`reps/${repId}/repair_history`);
 
     repRef.on('value', rep => {
