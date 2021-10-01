@@ -40,7 +40,7 @@ export function EditRepModal({ isOpen, onRequestClose, id }: ModalProps) {
     //   return;
     // }
 
-    const repRef = database.ref(`reps/${id}`);
+    const repRef = database.ref(`reps`).child(repId);
 
     await repRef.update({
       local: local,
