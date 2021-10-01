@@ -25,7 +25,9 @@ export function App() {
         </AuthContextProvider>
       </BrowserRouter>
       <GlobalStyle />
-      <ToastContainer />
+      <ToastContainer
+        autoClose={2000}
+      />
     </>
   );
 }
