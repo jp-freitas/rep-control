@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { database } from "../services/firebase";
 
 type RepType = {
@@ -23,7 +24,7 @@ type FirebaseRepairHistory = Record<string, {
 }>;
 
 export function useRep(repId: string) {
-  const [rep, setRep] = useState<RepType>();
+  const [rep, setRep] = useState({} as RepType);
   const [repRepairHistory, setRepRepairHistory] = useState<RepairHistory[]>([]);
 
   useEffect(() => {
@@ -32,7 +33,12 @@ export function useRep(repId: string) {
 
     repRef.on('value', rep => {
       const databaseRep = rep.val();
-      setRep(databaseRep);
+      if (!databaseRep) {
+        toast.error('Erro ao buscar informações do Banco de Dados');
+        return;
+      } else {
+        setRep(databaseRep);
+      }
     });
 
     repRepairHistoryRef.on('value', repRH => {
