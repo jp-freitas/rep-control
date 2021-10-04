@@ -9,6 +9,7 @@ import { RepRepairHistory } from "../RepRepairHistory";
 import { Container, Header, Content } from './styles';
 import { useRep } from "../../hooks/useRep";
 import { EditRepModal } from "../EditRepModal";
+import { FormatInternetProtocol } from "../../utils/FormatInternetProtocol";
 
 type RepParams = {
   id: string;
@@ -64,9 +65,9 @@ export function Rep() {
           </thead>
           <tbody>
             <tr>
-              <td>{rep?.local}</td>
-              <td>{rep?.internet_protocol}</td>
-              <td>{rep?.serial_number}</td>
+              <td>{rep.local}</td>
+              <td>{FormatInternetProtocol(rep.internet_protocol)}</td>
+              <td>{rep.serial_number}</td>
             </tr>
           </tbody>
         </table>

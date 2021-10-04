@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { usePaginate } from '../../hooks/usePaginate';
 import { useReps } from '../../hooks/useReps';
+import { FormatInternetProtocol } from '../../utils/FormatInternetProtocol';
 import { Pagination } from '../Pagination';
 import { Container } from './styles';
 
@@ -28,7 +29,7 @@ export function Reps() {
           {currentList.map(rep => (
             <tr key={rep.id}>
               <td>{rep.local}</td>
-              <td>{rep.internet_protocol}</td>
+              <td>{FormatInternetProtocol(rep.internet_protocol)}</td>
               <td>{rep.serial_number}</td>
               <td><Link to={`/rep/${rep.id}`}>Detalhes</Link></td>
             </tr>
