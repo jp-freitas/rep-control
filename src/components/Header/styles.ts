@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Content = styled.header`
-  padding: 0 0 5rem;
+  padding: 0 0 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,10 @@ export const Content = styled.header`
       font-size: 1.1rem;
       font-weight: 400;
       padding-left: 1rem;
+    }
+
+    button {
+      margin-left: 1rem;
     }
   }
 
