@@ -16,7 +16,7 @@ interface ModalProps {
 }
 
 export function NewRepairHistoricModal({ isOpen, onRequestClose, id }: ModalProps) {
-  const [date, setDate] = useState(String(new Date()));
+  const [date, setDate] = useState(String(Date()));
   const [description, setDescription] = useState('');
   const [situation, setSituation] = useState('');
 
@@ -61,27 +61,27 @@ export function NewRepairHistoricModal({ isOpen, onRequestClose, id }: ModalProp
       </button>
       <Container onSubmit={handleCreateRepairHistoric}>
         <h2>Cadastrar Histórico de Reparo</h2>
-        <label htmlFor="date">Data</label>
         <Input
           id="date"
           name="date"
           type="date"
+          placeholder="Data"
           value={date}
           onChange={event => setDate(event.target.value)}
         />
-        <label htmlFor="description">Descrição</label>
         <Input
           id="description"
           name="description"
           type="text"
+          placeholder="Descrição"
           value={description}
           onChange={event => setDescription(event.target.value)}
         />
-        <label htmlFor="situation">Situação</label>
         <Input
           id="situation"
           name="situation"
           type="text"
+          placeholder="Situação"
           value={situation}
           onChange={event => setSituation(event.target.value)}
         />
