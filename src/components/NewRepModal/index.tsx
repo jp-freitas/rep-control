@@ -16,8 +16,8 @@ interface ModalProps {
 
 export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
   const [local, setLocal] = useState('');
-  const [internetProtocol, setInternetProtocol] = useState(0);
-  const [serialNumber, setSerialNumber] = useState(0);
+  const [internetProtocol, setInternetProtocol] = useState(Number('000.000.000.000'));
+  const [serialNumber, setSerialNumber] = useState(Number('0000.0000.00000'));
 
   async function handleCreateRep(event: FormEvent) {
     event.preventDefault();
@@ -39,8 +39,8 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
     onRequestClose();
     toast.success('Relógio Cadastrado com Sucesso!');
     setLocal('');
-    setInternetProtocol(Number());
-    setSerialNumber(Number());
+    setInternetProtocol(Number(''));
+    setSerialNumber(Number(''));
   }
 
   return (
@@ -59,27 +59,27 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
       </button>
       <Container onSubmit={handleCreateRep}>
         <h2>Cadastrar Relógio</h2>
-        <label htmlFor="local">Local</label>
         <Input
           id="local"
           name="local"
           type="text"
+          placeholder="Local"
           value={local}
           onChange={event => setLocal(event.target.value)}
         />
-        <label htmlFor="internet-protocol">Protocolo de Internet</label>
         <Input
           id="internet-protocol"
           name="internet-protocol"
           type="number"
+          placeholder="IP"
           value={internetProtocol}
           onChange={event => setInternetProtocol(Number(event.target.value))}
         />
-        <label htmlFor="serial-number">Número de Série</label>
         <Input
           id="serial-number"
           name="serial-number"
           type="number"
+          placeholder="Número de Série"
           value={serialNumber}
           onChange={event => setSerialNumber(Number(event.target.value))}
         />
