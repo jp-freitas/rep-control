@@ -71,7 +71,6 @@ export function EditRepModal({ isOpen, onRequestClose, id }: ModalProps) {
       </button>
       <Container onSubmit={handleEditRep}>
         <h2>Editar Relógio</h2>
-        <label htmlFor="local">Local</label>
         <Input
           id="local"
           name="local"
@@ -79,7 +78,6 @@ export function EditRepModal({ isOpen, onRequestClose, id }: ModalProps) {
           value={local}
           onChange={event => setLocal(event.target.value)}
         />
-        <label htmlFor="internet-protocol">Protocolo de Internet</label>
         <Input
           id="internet-protocol"
           name="internet-protocol"
@@ -87,7 +85,6 @@ export function EditRepModal({ isOpen, onRequestClose, id }: ModalProps) {
           value={internetProtocol}
           onChange={event => setInternetProtocol(Number(event.target.value))}
         />
-        <label htmlFor="serial-number">Número de Série</label>
         <Input
           id="serial-number"
           name="serial-number"
