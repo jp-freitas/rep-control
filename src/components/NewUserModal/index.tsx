@@ -3,7 +3,7 @@ import { FiX } from 'react-icons/fi';
 import Modal from 'react-modal';
 import { Button } from '../Button';
 import { Input } from '../Input';
-import { Container } from "./styles";
+import { Container, RoleContainer } from "./styles";
 
 interface ModalProps {
   isOpen: boolean;
@@ -13,6 +13,7 @@ interface ModalProps {
 export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
   const [password, setPassword] = useState('');
 
   return (
@@ -31,35 +32,39 @@ export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
       </button>
       <Container>
         <h2>Cadastrar Usuário</h2>
-        <label htmlFor="nome">Nome</label>
         <Input
           id="nome"
           name="nome"
           type="text"
+          placeholder="Nome"
           value={nome}
           onChange={event => setNome(event.target.value)}
         />
-        <label htmlFor="email">E-mail</label>
         <Input
           id="email"
           name="email"
           type="e-mail"
+          placeholder="E-mail"
           value={email}
           onChange={event => setEmail(event.target.value)}
         />
-        <label htmlFor="password">Senha</label>
+        <RoleContainer>
+          <Button>Administrador</Button>
+          <Button>Atendente</Button>
+        </RoleContainer>
         <Input
           id="password"
           name="password"
           type="passowrd"
+          placeholder="Senha"
           value={password}
           onChange={event => setPassword(event.target.value)}
         />
-        <label htmlFor="password">Confirmar senha</label>
         <Input
           id="password"
           name="password"
           type="passowrd"
+          placeholder="Confirmar senha"
           value={password}
           onChange={event => setPassword(event.target.value)}
         />

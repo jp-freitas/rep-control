@@ -18,9 +18,12 @@ export const Container = styled.form`
   label {
     margin-top: 1rem;
   }
+`;
 
-  div {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
+export const RoleContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  gap: 0.5rem
 `;
