@@ -23,7 +23,6 @@ export const Container = styled.form`
 export const RoleContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   gap: 0.5rem
 `;

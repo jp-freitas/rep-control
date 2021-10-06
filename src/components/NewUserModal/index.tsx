@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import Modal from 'react-modal';
 import { Button } from '../Button';
@@ -13,8 +13,17 @@ interface ModalProps {
 export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('atendee');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  async function handleCreateUser(event: FormEvent) {
+    event.preventDefault();
+
+    console.log(nome, email, role, password, confirmPassword);
+
+    onRequestClose();
+  }
 
   return (
     <Modal
@@ -30,7 +39,7 @@ export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
       >
         <FiX />
       </button>
-      <Container>
+      <Container onSubmit={handleCreateUser}>
         <h2>Cadastrar Usuário</h2>
         <Input
           id="nome"
@@ -39,6 +48,7 @@ export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
           placeholder="Nome"
           value={nome}
           onChange={event => setNome(event.target.value)}
+          required
         />
         <Input
           id="email"
@@ -47,28 +57,43 @@ export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
           placeholder="E-mail"
           value={email}
           onChange={event => setEmail(event.target.value)}
+          required
         />
         <RoleContainer>
-          <Button>Administrador</Button>
-          <Button>Atendente</Button>
+          <Button
+            type="button"
+            isActive={role === 'admin'}
+            onClick={() => { setRole('admin') }}
+          >
+            Administrador
+          </Button>
+          <Button
+            type="button"
+            isActive={role === 'atendee'}
+            onClick={() => { setRole('atendee') }}
+          >
+            Atendente
+          </Button>
         </RoleContainer>
         <Input
           id="password"
           name="password"
-          type="passowrd"
+          type="password"
           placeholder="Senha"
           value={password}
           onChange={event => setPassword(event.target.value)}
+          required
         />
         <Input
-          id="password"
-          name="password"
-          type="passowrd"
+          id="confirm-password"
+          name="confirm-password"
+          type="password"
           placeholder="Confirmar senha"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
+          value={confirmPassword}
+          onChange={event => setConfirmPassword(event.target.value)}
+          required
         />
-        <Button type="submit">Cadastrar</Button>
+        <Button isActive={false} type="submit">Cadastrar</Button>
       </Container>
     </Modal>
   );
