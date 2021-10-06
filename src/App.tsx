@@ -9,18 +9,23 @@ import { Rep } from './components/Rep';
 import { AuthContextProvider } from './contexts/AuthContext';
 
 import { GlobalStyle } from './styles/global';
+import { PrivateRoute } from './components/PrivateRoute';
+
+import { useAuth } from './hooks/useAuth';
 
 Modal.setAppElement('#root');
 
 export function App() {
+  const { user } = useAuth();
+
   return (
     <>
       <BrowserRouter>
         <AuthContextProvider>
           <Switch>
             <Route path="/" exact component={SignIn} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/rep/:id" component={Rep} />
+            <PrivateRoute isAuthenticated={!user} authenticationPath="/" path="/dashboard" component={Dashboard} />
+            <PrivateRoute isAuthenticated={!user} authenticationPath="/" path="/rep/:id" component={Rep} />
           </Switch>
         </AuthContextProvider>
       </BrowserRouter>
