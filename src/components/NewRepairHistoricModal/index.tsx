@@ -85,7 +85,7 @@ export function NewRepairHistoricModal({ isOpen, onRequestClose, id }: ModalProp
           value={situation}
           onChange={event => setSituation(event.target.value)}
         />
-        <Button type="submit">Cadastrar</Button>
+        <Button isActive={false} type="submit">Cadastrar</Button>
       </Container>
     </Modal>
   );
