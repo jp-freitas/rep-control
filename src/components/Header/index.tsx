@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { FiLogOut, FiPlusCircle, FiSearch } from 'react-icons/fi';
+import { FiLogOut, FiPlusCircle, FiSearch, FiUser } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../Button';
@@ -24,20 +24,20 @@ export function Header({ onOpenNewRepModal, onOpenNewUserModal }: HeaderProps) {
   return (
     <Content>
       <div className="user-group">
-        <img src={user?.avatar} alt={user?.name} />
+        <FiUser />
         <p>{user?.name}</p>
-        <Button onClick={onOpenNewUserModal}>
+        {/* <Button isActive={false} onClick={onOpenNewUserModal}>
           <FiPlusCircle />
           Usuário
-        </Button>
+        </Button> */}
       </div>
       <div className="action-group">
         <Input name="search" icon={FiSearch} placeholder="Pesquisar por relógio" />
-        <Button onClick={onOpenNewRepModal}>
+        <Button isActive={false} onClick={onOpenNewRepModal}>
           <FiPlusCircle />
           Relógio
         </Button>
-        <Button onClick={handleLogout}>
+        <Button isActive={false} onClick={handleLogout}>
           <FiLogOut />
           Sair
         </Button>

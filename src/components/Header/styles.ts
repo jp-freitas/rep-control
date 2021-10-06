@@ -12,9 +12,9 @@ export const Content = styled.header`
     margin-top: 1rem;
     justify-content: space-between;
 
-    img {
-      width: 3rem;
-      border-radius: 50%;
+    svg {
+      width: 2em;
+      height: 2em;
     }
 
     p {
@@ -25,6 +25,11 @@ export const Content = styled.header`
 
     button {
       margin-left: 1rem;
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
     }
   }
 
