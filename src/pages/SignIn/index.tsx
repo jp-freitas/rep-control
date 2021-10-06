@@ -23,7 +23,7 @@ export function SignIn() {
       <Content>
         <h1>REP-CONTROL</h1>
         <p>Control your maintenance history <br /> of biometric time clock!</p>
-        <Button onClick={handleSignIn}>
+        <Button isActive={false} onClick={handleSignIn}>
           <FaGoogle />
           Login with Google!
         </Button>
