@@ -2,10 +2,12 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { Container } from './styles';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  isActive: boolean;
+};
 
-export function Button(props: ButtonProps) {
+export function Button({ isActive, ...rest }: ButtonProps) {
   return (
-    <Container {...props} />
+    <Container isActive={isActive} {...rest} />
   );
 }

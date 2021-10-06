@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+interface ButtonProps {
+  isActive: boolean;
+}
+
+export const Container = styled.button<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,8 +12,8 @@ export const Container = styled.button`
     font-size: 1rem;
     margin-top: 0.6rem;
     padding: 0.6rem;
-    background: var(--background-sidebar);
-    border: 0;
+    background: ${(props) => props.isActive ? 'var(--background-input)' : 'var(--background-sidebar)'};
+    border: ${(props) => props.isActive ? 'solid 0.1rem var(--background-sidebar)' : 0};
     border-radius: 0.25rem;
     transition: filter 0.2s;
     box-shadow: 0 0.5rem 0.5rem -0.25rem rgba(0, 0, 0, 0.25);
