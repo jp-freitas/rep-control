@@ -49,7 +49,7 @@ export function Rep() {
           <FiArrowLeft />
         </Link>
         <h2>Informação do Relógio de Ponto Biométrico</h2>
-        <Button isActive={false} onClick={handleOpenEditRepModal}>
+        <Button onClick={handleOpenEditRepModal}>
           <FiEdit2 />
           Editar
         </Button>

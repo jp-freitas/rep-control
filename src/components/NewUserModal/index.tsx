@@ -93,7 +93,7 @@ export function NewUserModal({ isOpen, onRequestClose }: ModalProps) {
           onChange={event => setConfirmPassword(event.target.value)}
           required
         />
-        <Button isActive={false} type="submit">Cadastrar</Button>
+        <Button type="submit">Cadastrar</Button>
       </Container>
     </Modal>
   );

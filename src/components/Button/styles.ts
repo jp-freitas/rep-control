@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ButtonProps {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export const Container = styled.button<ButtonProps>`

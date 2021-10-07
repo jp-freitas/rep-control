@@ -26,18 +26,18 @@ export function Header({ onOpenNewRepModal, onOpenNewUserModal }: HeaderProps) {
       <div className="user-group">
         <FiUser />
         <p>{user?.name}</p>
-        {/* <Button isActive={false} onClick={onOpenNewUserModal}>
+        {/* <Button onClick={onOpenNewUserModal}>
           <FiPlusCircle />
           Usuário
         </Button> */}
       </div>
       <div className="action-group">
         <Input name="search" icon={FiSearch} placeholder="Pesquisar por relógio" />
-        <Button isActive={false} onClick={onOpenNewRepModal}>
+        <Button onClick={onOpenNewRepModal}>
           <FiPlusCircle />
           Relógio
         </Button>
-        <Button isActive={false} onClick={handleLogout}>
+        <Button onClick={handleLogout}>
           <FiLogOut />
           Sair
         </Button>

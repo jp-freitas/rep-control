@@ -92,7 +92,7 @@ export function EditRepModal({ isOpen, onRequestClose, id }: ModalProps) {
           value={serialNumber}
           onChange={event => setSerialNumber(Number(event.target.value))}
         />
-        <Button isActive={false} type="submit">Alterar</Button>
+        <Button type="submit">Alterar</Button>
       </Container>
     </Modal>
   );

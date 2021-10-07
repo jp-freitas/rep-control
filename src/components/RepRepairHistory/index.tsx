@@ -25,7 +25,7 @@ export function RepRepairHistory({
     <Container>
       <Header className="repair-header">
         <h2>Histórico de Reparo</h2>
-        <Button isActive={false} onClick={openModal}>
+        <Button onClick={openModal}>
           <FiPlusCircle />
           Adicionar
         </Button>

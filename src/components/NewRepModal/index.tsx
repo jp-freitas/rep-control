@@ -83,7 +83,7 @@ export function NewRepModal({ isOpen, onRequestClose }: ModalProps) {
           value={serialNumber}
           onChange={event => setSerialNumber(Number(event.target.value))}
         />
-        <Button isActive={false} type="submit">Cadastrar</Button>
+        <Button type="submit">Cadastrar</Button>
       </Container>
     </Modal>
   );
