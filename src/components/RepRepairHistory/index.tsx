@@ -2,6 +2,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { useParams } from "react-router";
 
 import { useRep } from "../../hooks/useRep";
+import { FormatDate } from "../../utils/FormatDate";
 
 import { Button } from "../Button";
 import { Container, Content, Header } from "./styles";
@@ -41,7 +42,7 @@ export function RepRepairHistory({
         <tbody>
           {repRepairHistory.map(history => (
             <tr key={history.id}>
-              <td>{history.date}</td>
+              <td>{FormatDate(history.date)}</td>
               <td>{history.description}</td>
               <td>{history.situation}</td>
             </tr>
