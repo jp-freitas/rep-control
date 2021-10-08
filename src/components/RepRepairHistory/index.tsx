@@ -5,6 +5,7 @@ import { useRep } from "../../hooks/useRep";
 import { FormatDate } from "../../utils/FormatDate";
 
 import { Button } from "../Button";
+import { Print } from "../Print";
 import { Container, Content, Header } from "./styles";
 
 interface RepairHistoryProps {
@@ -22,14 +23,18 @@ export function RepRepairHistory({
   const repId = params.id;
   const { repRepairHistory } = useRep(repId);
 
+
   return (
     <Container>
       <Header className="repair-header">
         <h2>Histórico de Reparo</h2>
-        <Button onClick={openModal}>
-          <FiPlusCircle />
-          Adicionar
-        </Button>
+        <div>
+          <Print id={repId} />
+          <Button onClick={openModal}>
+            <FiPlusCircle />
+            Adicionar
+          </Button>
+        </div>
       </Header>
       <Content>
         <thead>
