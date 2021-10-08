@@ -8,7 +8,12 @@ interface PaginationProps {
   paginate: (number: number) => void;
 }
 
-export function Pagination({ listPerPage, listTotal, paginate, currentPage }: PaginationProps) {
+export function Pagination({
+  listPerPage,
+  listTotal,
+  paginate,
+  currentPage
+}: PaginationProps) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(listTotal / listPerPage); i++) {
@@ -20,7 +25,7 @@ export function Pagination({ listPerPage, listTotal, paginate, currentPage }: Pa
       <Content>
         {pageNumbers.map(number => (
           <ListItem key={number}>
-            <Link onClick={() => paginate(number)} to="#" className={number === currentPage ? "active" : ""}>{number}</Link>
+            <Link onClick={() => paginate(number)} to='#' className={number === currentPage ? "active" : ""}>{number}</Link>
           </ListItem>
         ))}
       </Content>
