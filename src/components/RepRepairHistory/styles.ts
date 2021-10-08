@@ -14,10 +14,18 @@ export const Header = styled.header`
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-    
-  button {
-    margin-top: 0;
+  
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    button {
+      margin-top: 0;
+    }
   }
+    
+  
 `;
 
 export const Content = styled.table`
