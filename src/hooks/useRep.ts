@@ -10,7 +10,7 @@ type RepType = {
   repair_history: FirebaseRepairHistory;
 }
 
-type RepairHistory = {
+export type RepairHistory = {
   id: string;
   date: Date;
   description: string;
