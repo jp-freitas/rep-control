@@ -1,5 +1,8 @@
+import { parseISO, format } from 'date-fns';
+
 export function FormatDate(date: Date) {
-  const dateToDate = new Date(date);
-  const parsedDate = new Intl.DateTimeFormat('pt-BR').format(dateToDate);
-  return parsedDate;
+  const parsedDateToString = String(date);
+  const parsedDate = parseISO(parsedDateToString);
+  const formattedDate = format(new Date(parsedDate), 'dd/MM/yyyy');
+  return formattedDate;
 }
