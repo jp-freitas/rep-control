@@ -2,9 +2,11 @@ import { FiPlusCircle } from "react-icons/fi";
 import { useParams } from "react-router";
 
 import { useRep } from "../../hooks/useRep";
+import { useRepairHistoryPaginate } from "../../hooks/useRepairHistoryPaginate";
 import { FormatDate } from "../../utils/FormatDate";
 
 import { Button } from "../Button";
+import { Pagination } from "../Pagination";
 import { Print } from "../Print";
 import { Container, Content, Header } from "./styles";
 
@@ -22,6 +24,12 @@ export function RepRepairHistory({
   const params = useParams<RepParams>();
   const repId = params.id;
   const { repRepairHistory } = useRep(repId);
+  const {
+    currentList,
+    paginate,
+    currentPage,
+    itensPerPage,
+  } = useRepairHistoryPaginate(repRepairHistory, 7);
 
 
   return (
@@ -45,7 +53,7 @@ export function RepRepairHistory({
           </tr>
         </thead>
         <tbody>
-          {repRepairHistory.map(history => (
+          {currentList.map(history => (
             <tr key={history.id}>
               <td>{FormatDate(history.date)}</td>
               <td>{history.description}</td>
@@ -54,6 +62,12 @@ export function RepRepairHistory({
           ))}
         </tbody>
       </Content>
+      <Pagination
+        listPerPage={itensPerPage}
+        listTotal={repRepairHistory.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </Container>
   );
 }
