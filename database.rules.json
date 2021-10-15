@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "reps": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$pointId": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        "repairHistory": {
+          ".read": "auth != null",
+          ".write": "auth != null"
+        }
+      }
+    }
+  }
+}
